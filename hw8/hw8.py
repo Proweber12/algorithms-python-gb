@@ -1,10 +1,10 @@
-year = int(input('Введите год: '))
+*numbers, digit = input('Введите последовательность чисел и цифру, которую необходимо посчитать - ').split()
 
-if year < 1582:
-    print('До 1582 года високосных лет не существовало')
-elif year % 400 == 0:
-    print(f'{year} - високосный год')
-elif year % 4 == 0 and year % 100 != 0:
-    print(f'{year} - високосный год')
-else:
-    print(f'{year} - невисокосный год')
+count = 0
+
+for num in numbers:
+    for i in num:
+        if digit == i:
+            count += 1
+
+print(f'Цифра {digit} встретилась {count} раз(-а)')

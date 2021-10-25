@@ -1,17 +1,18 @@
-# В задании было трёхзначное число, но мне пришло в голову это решение и я решил,
-# что это точно не хуже, так как моё решение предусматривает все варианты величины числа
+print('Вы вошли в калькулятор')
 
 while True:
-    number = input('Введите число: ')
-
-    sum = 0
-    mul = 1
-
-    if number.isdigit():
-        for f in number:
-            sum += int(f)
-            mul *= int(f)
-        print(f'Сумма числа: {sum}')
-        print(f'Произведение числа: {mul}')
-        break
-
+    user_input = input('Введите число, потом арефметический знак(+, -, *, /), затем второе число,\nа если хотите завершить работу в калькуляторе просто введите 0: ').split()
+    match user_input:
+        case a, '+', b if str.isdigit(a) and str.isdigit(b):
+            print(f'\nРешение: {a} + {b} = {int(a) + int(b)}\n')
+        case a, '-', b if str.isdigit(a) and str.isdigit(b):
+            print(f'\nРешение: {a} - {b} = {int(a) - int(b)}\n')
+        case a, '*', b if str.isdigit(a) and str.isdigit(b):
+            print(f'\nРешение: {a} * {b} = {int(a) * int(b)}\n')
+        case a, '/', b if int(b) > 0 and str.isdigit(a) and str.isdigit(b):
+            print(f'\nРешение: {a} / {b} = {round(int(a) / int(b), 3)}\n')
+        case '0',:
+            print('\nКалькулятор выключен')
+            break
+        case _:
+            print('\nВведены неверные данные\n')
