@@ -1,11 +1,7 @@
-n = int(input('Введите количество элементов ряда: '))
+from random import randint
 
-sum = 0
-div = -2
-digit = 1
+numbers = [randint(0, 10) for _ in range(20)]
+print(numbers)
 
-for i in range(n):
-    sum += digit
-    digit /= div
-
-print(f'Сумма: {sum}')
+for i in numbers:
+    print(numbers.count(i), end=', ')

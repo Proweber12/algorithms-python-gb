@@ -1,12 +1,10 @@
-num = input('Введите число: ')
+from random import sample
 
-even = 0
-odd = 0
+numbers = sample(range(1000), 5)
+num_idx = []
 
-for digit in num:
-    if int(digit) % 2 == 0:
-        even += 1
-    elif int(digit) % 2 != 0:
-        odd += 1
+for index, num in enumerate(numbers):
+    if num % 2 == 0:
+        num_idx.append(index)
 
-print(f'В числе {num} четных - {even}, нечетных - {odd}')
+print(f'Числа {numbers}, индексы чётных {num_idx}')
