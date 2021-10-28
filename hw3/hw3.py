@@ -3,11 +3,8 @@ from random import sample
 numbers = sample(range(1000), 5)
 print(numbers)
 
-min_num = numbers[0]
-max_num = numbers[0]
-
-min_idx = 0
-max_idx = 0
+min_num = max_num = numbers[0]
+min_idx = max_idx =  0
 
 for index, num in enumerate(numbers):
     if num > max_num:
