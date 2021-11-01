@@ -7,24 +7,24 @@ import math
 # Выполнение с диапазоном простых чисел до 10000 и нахождением 1000-ого простого числа - 0.049 секунды
 # Выполнение с диапазоном простых чисел до 100000 и нахождением 9000-ого простого числа - 7.111 секунд
 
-# def eratosphene(n, count_num):
-#
-#     sieve = set(range(2, n+1))
-#     count = 0
-#
-#     while sieve:
-#         prime = min(sieve)
-#         sieve -= set(range(prime, n+1, prime))
-#         count += 1
-#         if count == count_num:
-#             print(f'{prime} - это {count}-ое простое число по счёту')
-#             break
-#
-#     if count < count_num:
-#         print(f'В данном диапазоне нет {count_num}-ого простого числа по счёту')
-#
-#
-# cProfile.run('eratosphene(1000, 100)')
+def eratosphene(n, count_num):
+
+    sieve = set(range(2, n+1))
+    count = 0
+
+    while sieve:
+        prime = min(sieve)
+        sieve -= set(range(prime, n+1, prime))
+        count += 1
+        if count == count_num:
+            print(f'{prime} - это {count}-ое простое число по счёту')
+            break
+
+    if count < count_num:
+        print(f'В данном диапазоне нет {count_num}-ого простого числа по счёту')
+
+
+cProfile.run('eratosphene(1000, 100)')
 
 # Без "Решета Эратосфена"
 
