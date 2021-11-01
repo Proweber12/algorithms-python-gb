@@ -1,10 +1,33 @@
-res = {}
+# Определить, какое число в массиве встречается чаще всего
 
-for i in range(2, 10):
+# Вариант 1
+
+from random import randint
+from collections import Counter
+import cProfile
+
+numbers = [randint(0, 10) for _ in range(1000)]
+
+
+
+def number_popular():
+
     count = 0
-    for j in range(2, 100):
-        if j % i == 0:
-            count += 1
-            res[i] = count
-    print(f' Число {i} делит {count} чисел нацело')
+    number = 0
 
+    for i in numbers:
+        if numbers.count(i) > count:
+            count = numbers.count(i)
+            number = i
+
+    print(f'Число {number}, встречается чаще всего({count} раз(-а))')
+
+cProfile.run('number_popular()')
+
+# Вариант 2
+
+def number_popular_2():
+
+    print(Counter(numbers).most_common(1))
+
+cProfile.run('number_popular_2()')
